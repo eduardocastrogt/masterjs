@@ -42,25 +42,55 @@
     </div>
 
     <div class="center">
-        <section class="content">
+        <section id="content">
             <h2>Últimos artículos</h2>
             <!--Listado de articulos-->
+            <div id="articles">
+                <article class="article-item" id="article-template">
+                    <div class="img-wrap">
+                        <img src="https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg"
+                            alt="Paisaje">
+                    </div>
+                    <h2>Articulo de prueba</h2>
+                    <span class="date">
+                        Hace 5 minutos
+                    </span>
+                    <a href="#">Leer más</a>
+                </article>
+                <!--AÑADIR ARTICULOS VIA JS-->
+            </div>
+
         </section>
 
-        <aside id="asaide">
+        <script type="text/javascript">
+            var template = document.getElementById("article-template");
+
+
+            var articles = document.getElementById("articles");
+            for (var i = 0; i < 4; i++) {
+                var clonar = template.cloneNode(true);
+                clonar.removeAttribute("id");
+                var h2 = clonar.getElementsByTagName("h2")[0];
+                h2.innerHTML = h2.textContent + ' ' + i;
+                articles.appendChild(clonar);
+            }
+        </script>
+
+        <aside id="sidebar">
             <div id="nav-blog" class="sidebar-item">
                 <h3>Puedes hacer esto</h3>
-                <a href="#">Crear artículo</a>
+                <a href="#" class="btn btn-success">Crear artículo</a>
             </div>
             <div id="nav-blog" class="sidebar-item">
                 <h3>Buscador</h3>
                 <p>Encuentra el artículo que buscas</p>
                 <form>
-                    <input type="text" name="search"/>
-                    <input type="submit" name="submit" value="buscar">
+                    <input type="text" name="search" />
+                    <input type="submit" class="btn" name="submit" value="buscar">
                 </form>
             </div>
         </aside>
+        <div class="clearfix"></div>
     </div>
 
     <footer id="footer">
