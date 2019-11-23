@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Maquetación para el Master en Frameworks Javascript</title>
+    <!--Hoja de estilos-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="center">
+            <!--LOGO-->
+            <div id="logo">
+                <img src="assets/images/reactlogo.svg" class="app" alt="Logotipo">
+                <span id="brand">
+                    <strong>Curso</strong>React
+                </span>
+            </div>
+            <!--MENU-->
+            <nav id="menu">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Formulario</a></li>
+                    <li><a href="#">Pagina 1</a></li>
+                    <li><a href="#">Pagina 2</a></li>
+                </ul>
+            </nav>
+
+            <!--Limpiar flotados-->
+            <div class="clearfix"></div>
+        </div>
+    </header>
+
+    <div class="center">
+        <section id="content">
+
+            <article class="article-item" id="article-template">
+                <div class="img-wrap">
+                    <img src="https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg"
+                        alt="Paisaje" class="image-wrap">
+                </div>
+                <h1>Articulo de prueba</h1>
+                <span class="date">
+                    Hace 5 minutos
+                </span>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta felis ultricies, pretium
+                    lectus eu, aliquam ex. Nunc eu blandit nisl, et pellentesque nulla. Morbi molestie lectus sem.
+                    Maecenas lorem ante, dapibus eget aliquet sit amet, vehicula eget nisi. Vestibulum gravida eu libero
+                    quis feugiat. Integer ut varius quam. Aliquam vel nisl nec sem suscipit accumsan. Etiam in malesuada
+                    ligula, id pharetra turpis.
+                </p>
+
+                <p>
+                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam
+                    aliquet scelerisque sollicitudin. Donec cursus magna urna, commodo commodo velit ullamcorper eu.
+                    Donec id nisl lorem. Quisque finibus ante a nulla imperdiet accumsan. Pellentesque habitant morbi
+                    tristique senectus et netus et malesuada fames ac turpis egestas. Nullam egestas, erat et ornare
+                    vehicula, est ante accumsan lectus, nec blandit magna felis sit amet lacus. Orci varius natoque
+                    penatibus et magnis dis parturient montes, nascetur ridiculus mus. In luctus pellentesque malesuada.
+                </p>
+
+                <p>
+                    Nam nisl augue, ultrices ut dapibus eu, molestie ut tortor. Aenean vestibulum iaculis purus, sit
+                    amet molestie erat. Sed interdum pulvinar commodo. Mauris at sagittis nulla, at suscipit odio. Etiam
+                    ac imperdiet sapien. Phasellus imperdiet, mauris at semper maximus, nisi purus aliquet quam,
+                    bibendum facilisis quam mi eu lectus. Etiam in nisi odio.
+                </p>
+
+                <div class="clearfix"></div>
+            </article>
+
+        </section>
+
+
+        <aside id="sidebar">
+            <div id="nav-blog" class="sidebar-item">
+                <h3>Puedes hacer esto</h3>
+                <a href="#" class="btn btn-success">Crear artículo</a>
+            </div>
+            <div id="nav-blog" class="sidebar-item">
+                <h3>Buscador</h3>
+                <p>Encuentra el artículo que buscas</p>
+                <form>
+                    <input type="text" name="search" />
+                    <input type="submit" class="btn" name="submit" value="buscar">
+                </form>
+            </div>
+        </aside>
+        <div class="clearfix"></div>
+    </div>
+
+    <footer id="footer">
+        <div class="center">
+            <p>
+                &copy; Máster en frameworks para Javascript
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
