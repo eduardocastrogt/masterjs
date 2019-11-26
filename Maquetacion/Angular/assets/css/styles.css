@@ -42,15 +42,24 @@ body {
   height: 60px;
   margin-top: -9px;
   margin-right: -10px;
-  animation: girar infinite 30s linear;
+  animation: latir infinite 5s linear;
 }
 
-@keyframes girar {
-  from {
-    transform: rotate(0deg);
+@keyframes latir {
+  0% {
+    transform: scale(1,1);
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+    transform: scale(1.02,1.02);
+  }
+
+  55% {
+    transform: scale(0.95,0.95);
+  }
+
+  100% {
+    transform: scale(0,0);
   }
 }
 
@@ -362,4 +371,104 @@ textarea{
   margin-top: 15px;
   margin-bottom: 0px;
   border: none;
+}
+
+/*Responsive*/
+
+/*Media querys*/
+
+@media(max-width: 1488px){
+  .center{
+    width: 85%;
+  }
+}
+
+@media(max-width: 1314px){
+  .center{
+    width: 95%;
+  }
+
+  #menu ul{
+    width: auto;
+  }
+}
+
+@media(max-width: 797px){
+
+  #logo {
+    float: none;
+    width: 240px;
+    margin: 0px auto;
+    margin-top: 20px;
+  }
+
+  #menu,
+  #menu ul{
+    clear: both;
+    float: none;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    line-height: 43px;
+  }
+
+  #content{
+    float: none;
+    width: 100%;
+  }
+
+  #sidebar{
+    float: none;
+    width: 60%;
+    margin: 0px auto;
+    margin-bottom: 50pxs;
+  }
+
+  #slider h1{
+    padding-top: 115px;
+    font-size: 25px;
+  }
+
+  .mid-form{
+    width: 70%;
+  }
+}
+
+@media(max-width: 497px){
+  #header{
+    min-height: 130px;
+    overflow: hidden;
+  }
+
+  #menu,
+  #menu ul{
+    line-height: 50px;
+  }
+
+  #menu,
+  #menu ul li{
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+
+  #slider{
+    height: 180px;
+  }
+
+  #slider h1{
+    font-size: 19px;
+    padding-top: 30px;
+  }
+
+  #slider .btn-white{
+    margin-top: 20px;
+  }
+
+  #slider .slider-small{
+    height: 100px;
+  }
+
+  #slider .slider-small h1{
+    padding-top: 35px;
+  }
 }
