@@ -15,16 +15,13 @@ app.use(bodyParser.json());
 
 //CORS
 
-//Prefijos para las rutas
 
-//Ruta de prueba
-app.get('/probando', (req, res)=>{
-    return res.status(200).send({
-        curso: 'Master Frameworks js',
-        plataforma: 'Udemy',
-        autor: 'Victor Robles'
-    });
-});
+//Ficheros para las rutas
+var article_routes = require('./routes/article');
+
+//Cargar rutas
+app.use('/api',article_routes);
+
 
 //Exportar el modulos (fichero actual)
 
