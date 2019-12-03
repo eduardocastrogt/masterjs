@@ -69,12 +69,23 @@ var controller = {
     }
   },
 
-  getArticles: (req, res)=>{
+  getArticles: (req, res) => {
+
+    //Query consulta
+    var query = articleModel.find({});
+    //Carpurando el parametro
+    var last = req.params.last;
+
+    //Validando si viene el parametro
+    if (last || last != undefined) {
+      query.limit(5);
+    }
+
     //Busqueda de articulos
-    articleModel.find().sort('-_id').exec((err, articles)=>{
+    query.sort('-_id').exec((err, articles) => {
 
       //Validando el error
-      if(err){
+      if (err) {
         return res.status(500).send({
           status: 'error',
           message: 'Problema al obtener los articulos'
@@ -82,9 +93,9 @@ var controller = {
       }
 
       //Validando que exixtan articulos
-      if(!articles){
+      if (!articles) {
         return res.status(404).send({
-          status:'error',
+          status: 'error',
           message: 'No existen articulos para mostrar'
         });
       }
@@ -97,6 +108,129 @@ var controller = {
 
 
     });
+  },
+
+  //Obtener un articulo
+  getArticle: (req, res) => {
+
+    //Capturando el id 
+    var _id = req.params.id;
+
+    //Comprobar que exista
+    if (!_id || _id == null) {
+      return res.status(404).send({
+        status: 'error',
+        message: 'No existe articulo para mostrar'
+      });
+    }
+
+    //Buscar el articulo
+    articleModel.findById(_id, (err, article) => {
+
+      //Validando si retorna un articulo
+      if (err || !article) {
+        return res.status(404).send({
+          status: 'error',
+          message: 'No existe articulo para mostrar'
+        });
+      }
+
+      //Retornando el articulo
+      return res.status(200).send({
+        status: 'success',
+        article
+      });
+    });
+  },
+
+  //Actualiza articulo
+  update: (req, res) => {
+
+    //Obtener el id
+    var _idd = req.params.id;
+
+    //Obtener datos
+    var params = req.body;
+
+    //Validar los datos
+    try {
+
+      var validate_title = !validator.isEmpty(params.title);
+      var validate_content = !validator.isEmpty(params.content);
+
+      if (validate_title && validate_content) {
+        //Si son verdaderos, se busca y se actualizan
+        articleModel.findOneAndUpdate(
+          { _id: _idd },
+          params,
+          { new: true },
+          (err, articleUpdate) => {
+            //Validando el error
+            if (err) {
+              return res.status(500).send({
+                status: 'error',
+                message: 'Error al actualizar'
+              });
+            }
+            if (err) {
+              return res.status(404).send({
+                status: 'error',
+                message: 'No existe el articulo'
+              });
+            }
+
+            return res.status(200).send({
+              status: 'success',
+              articleUpdate
+            });
+          }
+        );
+      } else {
+        return res.status(404).send({
+          status: 'error',
+          message: 'La validación no es correcta'
+        });
+      }
+
+    } catch (err) {
+      return res.status(404).send({
+        status: 'error',
+        message: 'Faltan datos por enviar'
+      });
+    }
+
+  },
+
+  //Eliminando articulos
+  delete: (req, res) => {
+    //Obtener el id
+    var _idd = req.params.id;
+
+    //Buscando el objeto y eliminandolo
+    articleModel.findByIdAndDelete(
+      {_id: _idd},
+      (err, articleRemoved)=>{
+        //Validando el error
+        if(err){
+          return res.status(500).send({
+            status: 'error',
+            message: 'Error al borrar'
+          });
+        }
+
+        if(!articleRemoved){
+          return res.status(404).send({
+            status: 'error',
+            message: 'No es posible eliminar el articulo'
+          });
+        }
+
+        return res.status(200).send({
+          status: 'success',
+          articleRemoved
+        });
+      }
+    );
   }
 }; //End controller
 
