@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<p>{{content}}</p>
+<p>Year: {{year}}</p>
+<p>Sigo siendo el primer componete de Angular :D</p>
+
+
+<button (click)="ocultarPeliculas()">Ocultar peliculas</button>
+<div *ngIf="mostrarPeliculas">
+    <app-peliculas></app-peliculas>
+</div>

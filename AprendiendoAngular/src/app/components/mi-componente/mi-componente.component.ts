@@ -2,11 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
     selector: 'mi-componente',
-    template: `
-        <h1>{{title}}</h1>
-        <p>{{content}}</p>
-        <p>Year: {{year}}</p>
-    `
+    templateUrl: './mi-componente.component.html'
 })
 
 export class MiComponente{
@@ -15,15 +11,21 @@ export class MiComponente{
     public title: string;
     public content: string;
     public year: number;
+    public mostrarPeliculas: boolean;
 
     constructor(){
         /*Asignando valores*/
         this.title = "Yo soy el primer componente";
         this.content = "Yo soy el contenido del componente";
         this.year = 2020;
+        this.mostrarPeliculas = true;
 
         console.log('Yo soy el constructor del componente');
         console.log(this.title, this.content, this.year);
+    }
+
+    ocultarPeliculas(){
+        this.mostrarPeliculas = false;
     }
 }
 
