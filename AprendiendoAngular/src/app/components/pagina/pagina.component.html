@@ -1,1 +1,9 @@
 <h1 class="subheader">Pagina de pruebas</h1>
+<p>{{nombreparametro}}</p>
+
+<div *ngIf="nombreparametro && apellidoparametro">
+    <h2>{{nombreparametro}}</h2>
+    <h2>{{apellidoparametro}}</h2>
+</div>
+
+<button (click)="redireccion()">Llevame al formulario</button>
