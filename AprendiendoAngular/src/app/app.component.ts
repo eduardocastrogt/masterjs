@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public title = 'AprendiendoAngular';
   public homeText = 'Bienvenido al curso de Angular';
+
+  constructor(){
+    console.log(this.homeText);
+  }
 }

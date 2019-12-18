@@ -7,12 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
 
-  @Input() elementos: string;
+  @Input() elementos: string = "Soy el valor por defecto";
 
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.elementos);
   }
 
 }
