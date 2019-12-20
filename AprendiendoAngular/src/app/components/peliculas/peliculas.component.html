@@ -7,14 +7,11 @@
 
 <div class="center">
     <section id="content">
-        <h2 class="subheader">Pëliculas</h2>
-        <h2>{{titulo}}</h2>
-        <button (click)="cambiarTitulo()">Pulsame</button>
+        <h2 class="subheader">Peliculas</h2>
 
-        <hr>
-
-        <h2></h2>
-        {{peliculas.length}}
+        <div id="favorita" *ngIf="favorita">
+            <h2 class="subheader">Pelicula favorita: {{favorita.title}}</h2>
+        </div>
 
 
         <div *ngIf="peliculas.length <= 3">
@@ -30,20 +27,14 @@
 
         <h2 class="subheader"></h2>
         <div id="articles" *ngIf="peliculas">
-            <article class="article-item" *ngFor="let pelicula of peliculas; let i = index;">
-                <div class="img-wrap">
-                    <img src="{{pelicula.image}}" alt="Paisaje" class="image-wrap">
-                </div>
-                <h2>{{i}}. {{pelicula.title}}</h2>
-                <span [ngClass]="{
-                    'year-green': pelicula.year > 2016, 
-                    'year-red': pelicula.year <= 2016}">
-                    {{pelicula.year}}
-                </span>
-                <a href="#">Leer más</a>
 
-                <div class="clearfix"></div>
-            </article>
+            <div *ngFor="let pelicula of peliculas; let i = index;">
+                <app-pelicula
+                    [pelicula] = "pelicula"
+                    (MarcarFavorita) = "mostrarFavorita($event)"
+                ></app-pelicula
+                    >
+            </div>
             <!--AÑADIR ARTICULOS VIA JS-->
         </div>
     </section>

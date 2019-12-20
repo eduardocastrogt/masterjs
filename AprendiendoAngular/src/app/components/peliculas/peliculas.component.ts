@@ -12,6 +12,7 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy{
   public titulo: string;
   public mostrarPeliculas: boolean;
   public peliculas: Pelicula[];
+  public favorita: Pelicula;
 
   constructor() { 
     this.titulo = "Componente peliculas";
@@ -40,6 +41,10 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy{
 
   cambiarTitulo(){
     this.titulo = "El titulo ha sido cambiado";
+  }
+
+  mostrarFavorita(event){
+    this.favorita = event.pelicula;
   }
 
 }
