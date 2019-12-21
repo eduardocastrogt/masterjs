@@ -5,6 +5,9 @@ import VueRouter from 'vue-router';
 //Componentes
 import LastArticles from './components/LastArticles';
 import MiComponente from './components/MiComponente';
+import Blog from './components/Blog';
+import Formulario from './components/Formulario';
+import Pagina from './components/Pagina';
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
@@ -14,6 +17,9 @@ const routes = [
   {path: '/home', component: LastArticles},
   {path: '/ultimos-articulos', component: LastArticles},
   {path: '/mi-componente', component: MiComponente},
+  {path: '/blog', component: Blog},
+  {path: '/formulario', component: Formulario},
+  {path: '/pagina', component: Pagina},
   {path: '/', component: LastArticles}
 ]
 
