@@ -1,32 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <mi-componente></mi-componente>
+    <Header></Header>
+    <Slider></Slider>
+    <div class="center">
+      
+      <router-view></router-view>
+      <Sidebar></Sidebar>
+    </div>
+
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 
 <script>
 //Importando los componentes
-import HelloWorld from './components/HelloWorld.vue'
-import MiComponente from './components/MiComponente.vue'
+import Header from "./components/Header";
+import Slider from "./components/Slider";
+import Sidebar from "./components/Sidebar";
+import FooterComponent from './components/FooterComponent'
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld,
-    MiComponente
+    Header,
+    Slider,
+    Sidebar,
+    FooterComponent
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+
+@import "./assets/css/styles.css";
 </style>
