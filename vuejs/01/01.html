@@ -13,6 +13,9 @@
     <div id="app">
         <h1>{{titulo}}</h1>
 
+        <input type="text" v-model="nuevaFruta">
+        <button @click="agregarFruta">Agregar</button>
+
         <ul>
             <li v-for="fruta of frutas">
                 {{fruta.nombre}}-{{fruta.cantidad}}
